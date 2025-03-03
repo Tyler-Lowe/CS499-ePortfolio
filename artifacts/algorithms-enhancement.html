@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms & Data Structures Enhancement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Algorithms & Data Structures Enhancement</h1>
+
+    <p>
+        This enhancement focused on optimizing the game logic, particularly the shuffle algorithm and
+        handling tie-breaker scenarios more effectively.
+    </p>
+
+    <h2>Changes Implemented</h2>
+
+    <ul>
+        <li><strong>Optimized Shuffle Algorithm:</strong> Replaced the default shuffle function with the Fisher-Yates
+            algorithm for better randomness.</li>
+        <li><strong>Efficient Deck Management:</strong> Implemented a queue system to manage deck operations more
+            effectively.</li>
+        <li><strong>Improved Tie-Breakers:</strong> Refactored logic to handle consecutive ties properly and ensure fair
+            card distribution.</li>
+    </ul>
+
+    <h2>Challenges and Solutions</h2>
+
+    <p>
+        One challenge was ensuring that the shuffle algorithm maintained fairness across different
+        game sessions. By implementing Fisher-Yates, I improved the randomization quality compared
+        to the standard sort-based shuffle.
+    </p>
+
+    <p>
+        Another issue was resolving tie-breaker scenarios effectively. Initially, the game would
+        sometimes enter an infinite loop due to unresolved ties. By restructuring the tie-breaking
+        logic, I ensured that tied cards were properly redistributed without breaking the game flow.
+    </p>
+
+    <h2>Impact of These Enhancements</h2>
+
+    <p>
+        These enhancements made the game more fair and competitive. The optimized shuffle ensures
+        randomness, while the new tie-breaker logic prevents unfair advantages. This demonstrates my
+        understanding of algorithms and how they affect game mechanics.
+    </p>
+
+    <p><a href="index.html">← Back to Home</a></p>
+</body>
+
+</html>
