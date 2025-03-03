@@ -1,42 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Databases Enhancement</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-            line-height: 1.6;
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px auto; 
+            padding: 20px; 
+            max-width: 800px; 
+            line-height: 1.6; 
         }
-
-        h1 {
-            color: #333;
-        }
-
-        a {
-            color: blue;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
+        h1, h2 { color: #333; }
+        a { color: blue; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        code { background: #f4f4f4; padding: 3px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        .container { padding: 20px; border: 1px solid #ccc; border-radius: 8px; background: #f9f9f9; }
     </style>
 </head>
-
 <body>
-    <h1>Databases Enhancement</h1>
 
-    <p>
-        This enhancement focused on integrating a PostgreSQL database to store player statistics,
-        including wins and losses.
-    </p>
+    <h1>📂 Databases Enhancement</h1>
+    <p><strong>Category:</strong> Databases</p>
+
+    <div class="container">
+        <h2>📌 Overview</h2>
+        <p>
+            This enhancement aimed to integrate a <strong>PostgreSQL database</strong> to store player statistics 
+            in the War Card Game. The goal was to track wins and losses for each player and persist 
+            this data across game sessions.
+        </p>
+        <p>
+            While I was able to set up a **PostgreSQL database and API endpoints**, I encountered 
+            **issues with properly storing and retrieving data**. As a result, the final implementation 
+            does not fully integrate with the game, but it laid the foundation for future database integration.
+        </p>
+    </div>
+
+    <div class="container">
+        <h2>⚙️ Initial State of the Project</h2>
+        <p>
+            Originally, the game did not store player stats, meaning that every time the page reloaded, 
+            all progress was lost. To improve this, I attempted to build a **backend with Express.js** 
+            and connect it to a **PostgreSQL database**.
+        </p>
+    </div>
+
+    <div class="container">
+        <h2>🚀 Enhancements Attempted</h2>
+        <ul>
+            <li>✅ Set up a <strong>PostgreSQL database</strong> with a table for player stats.</li>
+            <li>✅ Created an **Express.js API** with routes to save and retrieve player data.</li>
+            <li>✅ Implemented **RESTful endpoints**:
+                <ul>
+                    <li><code>GET /api/stats/:playerName</code> → Fetch player stats.</li>
+                    <li><code>POST /api/game</code> → Update wins/losses.</li>
+                </ul>
+            </li>
+            <li>❌ Encountered **database authentication errors** that prevented full integration.</li>
+            <li>❌ The **frontend was unable to retrieve and display stored player stats** properly.</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>🔧 Code Implementation</h2>
+        
+        <h3>📌 PostgreSQL Table Creation</h3>
+        <pre>
+CREATE TABLE IF NOT EXISTS players (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL UNIQUE,
+    wins INT DEFAULT 0,
+    losses INT DEFAULT 0
+);
+        </pre>
+
+        <h3>📌 Express.js API for Player Stats</h3>
+        <pre>
+app.get('/api/stats/:playerName', async (req, res) => {
+    const { playerName } = req.params;
+    try {
+        const result = await pool.query('SELECT * FROM players WHERE name = $1', [playerName]);
+        res.status(200).json(result.rows[0] || { name: playerName, wins: 0, losses: 0 });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+        </pre>
+
+        <h3>📌 React Frontend Attempted Integration</h3>
+        <pre>
+useEffect(() => {
+    fetch(`/api/stats/${playerName}`)
+        .then(response => response.json())
+        .then(data => setPlayerStats(data))
+        .catch(err => console.error("Error fetching player stats:", err));
+}, [playerName]);
+        </pre>
+    </div>
+
+    <div class="container">
+        <h2>🛑 Issues Encountered</h2>
+        <ul>
+            <li><strong>Database authentication errors:</strong> I had trouble getting PostgreSQL credentials to work properly.</li>
+            <li><strong>Frontend could not retrieve stored data:</strong> The API did not return expected results.</li>
+            <li><strong>Connection issues:</strong> I was unable to properly deploy and test the database integration.</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>🎯 Key Takeaways</h2>
+        <ul>
+            <li>Gained experience in setting up **PostgreSQL databases** and writing **SQL queries**.</li>
+            <li>Learned how to build and consume **RESTful APIs** using **Express.js**.</li>
+            <li>Identified key challenges in **backend/frontend integration** and database authentication.</li>
+            <li>While the full database functionality is not working, the groundwork has been laid for future improvements.</li>
+        </ul>
+    </div>
 
     <p><a href="index.html">← Back to Home</a></p>
-</body>
 
+</body>
 </html>
