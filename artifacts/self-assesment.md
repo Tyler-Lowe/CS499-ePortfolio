@@ -1,10 +1,65 @@
-# Professional Self-Assessment
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Self-Assessment</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; line-height: 1.6; }
+        h1 { color: #333; }
+        a { color: blue; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Professional Self-Assessment</h1>
+    
+    <p>
+        Over the course of my Computer Science degree, I have gained valuable experience in 
+        software engineering, algorithms, data structures, and databases. This capstone project 
+        has allowed me to showcase my growth and apply what I have learned to a real-world project. 
+        My final project, a React.js-based War Card Game, demonstrates my ability to build, enhance, 
+        and optimize a web application while incorporating industry best practices.
+    </p>
 
-## My Growth in Computer Science
-This capstone project was a great way to bring together everything I’ve learned. My project, a **React.js War Card Game**, allowed me to apply **software engineering, algorithms, and databases** in a real-world application.
+    <h2>Key Takeaways from the Capstone Project</h2>
+    
+    <p>
+        Working on this project helped me refine my development process and understand how various 
+        aspects of computer science come together to create a complete software application. Some 
+        of the key areas I focused on include:
+    </p>
 
-## Challenges & Lessons Learned
-One of the biggest challenges was **debugging database authentication issues**. Even though I didn’t fix them completely, I learned **backend development and troubleshooting**.
+    <ul>
+        <li><strong>Software Engineering & Design:</strong> Improved React component structure, implemented animations, and optimized the game logic.</li>
+        <li><strong>Algorithms & Data Structures:</strong> Implemented an efficient shuffle algorithm using Fisher-Yates and developed tie-breaker mechanics.</li>
+        <li><strong>Databases:</strong> Designed a PostgreSQL database to store player statistics, including wins and losses.</li>
+    </ul>
 
-## How This Applies to My Career
-This project helped me gain more confidence in **full-stack development**. Moving forward, I plan to improve my **backend skills**, especially with databases and authentication.
+    <h2>Challenges Faced and Lessons Learned</h2>
+    
+    <p>
+        One of the biggest challenges I faced was implementing a backend that could store and retrieve 
+        player data efficiently. Initially, I encountered authentication errors when setting up the 
+        PostgreSQL database, which required me to debug and adjust user permissions. Another challenge 
+        was ensuring the frontend properly displayed the retrieved data and updated it dynamically 
+        based on game outcomes.
+    </p>
+    
+    <p>
+        Through this process, I learned how to troubleshoot backend issues, improve API error handling, 
+        and structure my database to support scalable applications.
+    </p>
+
+    <h2>Future Goals</h2>
+
+    <p>
+        Moving forward, I plan to refine my skills further in full-stack development, focusing on 
+        advanced front-end frameworks like Next.js and backend optimizations using Node.js and databases. 
+        Additionally, I am interested in exploring cloud computing and DevOps to gain experience 
+        in deploying and managing web applications at scale.
+    </p>
+
+    <p><a href="index.html">← Back to Home</a></p>
+</body>
+</html>
